@@ -198,7 +198,6 @@ jobs:
             dist/sing-box=/usr/bin/sing-box
           cat > $HOME/.rpmmacros <<EOF
           %_gpg_name ${{ secrets.GPG_KEY_ID }}
-          %_gpg_sign_cmd /usr/bin/gpg --batch --no-tty --pinentry-mode loopback --passphrase-fd 0 -u %{_gpg_name} -sbo %{__signature_filename} %{__plaintext_filename}
           %_gpg_sign_cmd_extra_args --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSPHRASE }}
           EOF
           gpg --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --import <<EOF
