@@ -203,7 +203,7 @@ jobs:
           gpg --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --import <<EOF
           ${{ secrets.GPG_KEY }}
           EOF
-          rpmsign --addsign dist/*.rpm
+          rpm --addsign dist/*.rpm
       - name: Package Pacman
         if: matrix.pacman != ''
         run: |-
