@@ -187,7 +187,7 @@ jobs:
           EOF
           debsigs --sign=origin -k ${{ secrets.GPG_KEY_ID }} --gpgopts '--pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}"' dist/*.deb
       - name: Package RPM
-        if: matrix.rpm != ''
+        if: false #matrix.rpm != ''
         run: |-
           set -xeuo pipefail
           sudo gem install fpm
