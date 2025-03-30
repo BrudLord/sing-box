@@ -300,7 +300,7 @@ jobs:
         run: |-
           mkdir clients/android/app/libs
           cp libbox.aar clients/android/app/libs
-          cd clients/android
+          cd -f .github/workflows/release.keystore clients/android/app/release.keystore
           ./gradlew :app:assemblePlayRelease :app:assembleOtherRelease
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
